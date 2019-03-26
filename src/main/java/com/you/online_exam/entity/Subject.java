@@ -2,6 +2,8 @@ package com.you.online_exam.entity;
 
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableId;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -12,6 +14,7 @@ import java.io.Serializable;
  * @author 尤广富
  * @since 2019-03-26
  */
+@Data
 public class Subject implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -20,28 +23,4 @@ public class Subject implements Serializable {
     private Long id;
     private String name;
 
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Subject{" +
-        ", id=" + id +
-        ", name=" + name +
-        "}";
-    }
 }

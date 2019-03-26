@@ -4,6 +4,9 @@ import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
+import lombok.Data;
+import lombok.ToString;
+
 import java.io.Serializable;
 
 /**
@@ -14,6 +17,7 @@ import java.io.Serializable;
  * @author 尤广富
  * @since 2019-03-26
  */
+@Data
 @TableName("teacher_student")
 public class TeacherStudent implements Serializable {
 
@@ -26,37 +30,4 @@ public class TeacherStudent implements Serializable {
     @TableField("teacher_id")
     private Long teacherId;
 
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
-    }
-
-    public Long getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
-    }
-
-    @Override
-    public String toString() {
-        return "TeacherStudent{" +
-        ", id=" + id +
-        ", studentId=" + studentId +
-        ", teacherId=" + teacherId +
-        "}";
-    }
 }

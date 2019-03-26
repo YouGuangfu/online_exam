@@ -3,6 +3,8 @@ package com.you.online_exam.entity;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -13,6 +15,7 @@ import java.io.Serializable;
  * @author 尤广富
  * @since 2019-03-26
  */
+@Data
 @TableName("user_exercise")
 public class UserExercise implements Serializable {
 
