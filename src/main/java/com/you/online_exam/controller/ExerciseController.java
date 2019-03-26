@@ -4,6 +4,8 @@ package com.you.online_exam.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
@@ -13,7 +15,7 @@ import org.springframework.stereotype.Controller;
  * @author 尤广富
  * @since 2019-03-26
  */
-@Controller
+@RestController
 @RequestMapping("/exercise")
 public class ExerciseController {
 
