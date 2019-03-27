@@ -30,13 +30,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/online/"><img id="logo" src="/img/logo.png" alt="jmooc" /></a>
+                <a class="navbar-brand" href="/"><img id="logo" src="/img/logo.png" alt="jmooc" /></a>
             </div>
             <div class="collapse navbar-collapse">
                 <div class="navbar-right menu-main">
                     <ul class="nav navbar-nav">
 
-                        <li><a href="/online/"><span>首页</span></a></li>
+                        <li><a href="/"><span>首页</span></a></li>
                         <li><a href="/course/list"><span>课程中心</span></a></li>
                         <li><a href="/code"><span>代码运行</span></a></li>
                         <li><a href="/exercise/list"><span>习题中心</span></a></li>

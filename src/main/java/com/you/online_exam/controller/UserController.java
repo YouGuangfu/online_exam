@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
  * @since 2019-03-26
  */
 @Controller
-@RequestMapping("online")
+@RequestMapping
 public class UserController {
 
     @Autowired
@@ -37,6 +37,7 @@ public class UserController {
     public String login(){
         return "login";
     }
+
 
 }
 
