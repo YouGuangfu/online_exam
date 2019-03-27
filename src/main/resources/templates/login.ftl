@@ -51,9 +51,7 @@
                 var name = document.getElementById("name");
                 //判断输入框是否有内容
                 if(name.value.length==0){
-
                     confirm("用户名不能为空");
-                    openYesOrNoDLG();
                     return false;
                 }
                 var pass = document.getElementById("passBefore");
@@ -62,9 +60,6 @@
                     return false;
                 }
                 return true;
-            }
-            function openYesOrNoDLG(){
-                $('.alert').css('display', 'block');
             }
         </script>
 

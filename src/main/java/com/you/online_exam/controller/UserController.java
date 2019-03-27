@@ -69,7 +69,7 @@ public class UserController {
     public String userRegister(User user){
 
         if (!userService.userExist(user)){
-
+//前端提示
         }
         userService.userRegister(user);
         //注册完后登录

@@ -12,7 +12,7 @@
 </div>
 <div class="login-form">
     <div class="login-content">
-        <form name="loginForm">
+        <form name="loginForm" onsubmit="return register()">
             <div class="form-group">
                 <div class="btn btn-default btn-block btn-login" id="user-type">
                     <i class="fa fa-edit"></i>
@@ -53,6 +53,28 @@
                 </button>
             </div>
         </form>
+        <script>
+            function register(){
+                //得到name输入框对象
+                var name = document.getElementById("name");
+                //判断输入框是否有内容
+                if(name.value.length==0){
+                    confirm("用户名不能为空");
+                    return false;
+                }
+                var pass = document.getElementById("passBefore");
+                var passRepeat = document.getElementById("passRepeat");
+                if(pass.value.length==0){
+                    confirm("密码不能为空");
+                    return false;
+                }
+                if(pass != passRepeat){
+                    confirm("两次密码不一致！");
+                    return false;
+                }
+                return true;
+            }
+            </script>
     </div>
 </div>
 <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
