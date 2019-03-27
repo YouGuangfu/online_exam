@@ -4,6 +4,7 @@ import com.you.online_exam.entity.Exercise;
 import com.you.online_exam.mapper.ExerciseMapper;
 import com.you.online_exam.service.ExerciseService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,4 +18,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class ExerciseServiceImpl extends ServiceImpl<ExerciseMapper, Exercise> implements ExerciseService {
 
+    @Autowired
+    ExerciseMapper exerciseMapper;
+    @Override
+    public Exercise getExercise(Long exerciseId) {
+        if(exerciseId != null){
+            return exerciseMapper.selectById(exerciseId);
+        }
+        return null;
+    }
 }

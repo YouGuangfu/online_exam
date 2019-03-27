@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import lombok.Data;
+import lombok.Generated;
 
 import java.io.Serializable;
 
@@ -16,6 +17,7 @@ import java.io.Serializable;
  * @since 2019-03-26
  */
 @Data
+@Generated
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -28,4 +30,8 @@ public class User implements Serializable {
     private String password;
     private Integer role;
 
+    public User(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

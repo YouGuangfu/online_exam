@@ -3,6 +3,8 @@ package com.you.online_exam.service;
 import com.you.online_exam.entity.Subject;
 import com.baomidou.mybatisplus.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -13,4 +15,9 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface SubjectService extends IService<Subject> {
 
+    /**
+     * 获取所有科目
+     * @return
+     */
+    List<Subject> getAllSubjects();
 }

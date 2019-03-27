@@ -1,19 +1,38 @@
 spring:
-
+  thymeleaf:
+        enabled: false
+        cache: false
+        encoding: utf-8
+        suffix: .html
+        mode: HTML5
   datasource:
     url: jdbc:mysql://localhost:3306/onlineexam?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
     password: '0213'
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
   freemarker:
-    template-loader-path: classpath:/templates
-    #spring.freemarker.template-loader-path=classpath:/templates/
-    charset: utf-8
-    cache: false
-    expose-request-attributes: true
-    expose-session-attributes: true
-    expose-spring-macro-helpers: true
+    enabled: true
     suffix: .ftl
+    charset: UTF-8
+    template-loader-path: classpath:/templates/
+    check-template-location: true
+    content-type: text/html
+    .expose-request-attributes: false
+    expose-session-attributes: false
+    request-context-attribute: request
+#    spring.freemarker.check-template-location=true
+#    spring.freemarker.content-type=text/html
+#    spring.freemarker.expose-request-attributes=false
+#    spring.freemarker.expose-session-attributes=false
+#    spring.freemarker.request-context-attribute=request
+#    spring.freemarker.suffix=.ftl
+#    #spring.freemarker.template-loader-path=classpath:/templates/
+#    charset: utf-8
+#    cache: false
+#    expose-request-attributes: true
+#    expose-session-attributes: true
+#    expose-spring-macro-helpers: true
+#    suffix: .ftl
 server:
   port: 8088
 
@@ -21,14 +40,16 @@ server:
 #配置mybatis-plus
 mybatis-plus:
 #配置扫描xml
-  mapper-locations: classpath:/mapper/*.xml
+  config:
+  mapper-locations: classpath:mapper/*.xml
 #实体扫描，多个package用逗号或者分号分隔
-  type-aliases-package: com.you.entity
+  type-aliases-package: com.you.online_exam.entity
   global-config:
     #逻辑删除配置
     logic-delete-value: 0
     logic-not-delete-value: 1
     sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+
 
 
 
