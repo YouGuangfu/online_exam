@@ -17,14 +17,15 @@ spring:
 server:
   port: 8088
 
-#ÅäÖÃmybatis-plus
+
+#é…ç½®mybatis-plus
 mybatis-plus:
-#ÅäÖÃÉ¨Ãèxml
+#é…ç½®æ‰«æxml
   mapper-locations: classpath:/mapper/*.xml
-#ÊµÌåÉ¨Ãè£¬¶à¸öpackageÓÃ¶ººÅ»òÕß·ÖºÅ·Ö¸ô
+#å®ä½“æ‰«æï¼Œå¤šä¸ªpackageç”¨é€—å·æˆ–è€…åˆ†å·åˆ†éš”
   type-aliases-package: com.you.entity
   global-config:
-    #Âß¼­É¾³ıÅäÖÃ
+    #é€»è¾‘åˆ é™¤é…ç½®
     logic-delete-value: 0
     logic-not-delete-value: 1
     sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
