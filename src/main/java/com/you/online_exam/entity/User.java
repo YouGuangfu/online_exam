@@ -17,8 +17,9 @@ import java.io.Serializable;
  * @since 2019-03-26
  */
 @Data
-@Generated
 public class User implements Serializable {
+
+    private static final String DEFAULT_AVATAR="/img/default.png";
 
     private static final long serialVersionUID = 1L;
 
@@ -30,8 +31,22 @@ public class User implements Serializable {
     private String password;
     private Integer role;
 
+    public User() {
+    }
+
+    public User(String name) {
+        this.name = name;
+    }
+
     public User(Long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public User(String name, String password, Integer role) {
+        this.avatarUrl = DEFAULT_AVATAR;
+        this.name = name;
+        this.password = password;
+        this.role = role;
     }
 }

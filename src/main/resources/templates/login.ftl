@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>login</title>
@@ -12,7 +12,7 @@
 </div>
 <div class="login-form">
     <div class="login-content">
-        <form name="loginForm">
+        <form name="loginForm" onsubmit="return login()">
             <div class="form-group">
                 <div class="btn btn-default btn-block btn-login" id="user-type">
                     <i class="fa fa-edit"></i>
@@ -38,12 +38,36 @@
                 </div>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block btn-login" id="login-button">
+                <button type="submit" class="btn btn-primary btn-block btn-login" id="login-button" >
                     <i class="fa fa-sign-in"></i>
                     登录
                 </button>
             </div>
+
         </form>
+        <script>
+            function login(){
+                //得到name输入框对象
+                var name = document.getElementById("name");
+                //判断输入框是否有内容
+                if(name.value.length==0){
+
+                    confirm("用户名不能为空");
+                    openYesOrNoDLG();
+                    return false;
+                }
+                var pass = document.getElementById("passBefore");
+                if(pass.value.length==0){
+                    confirm("密码不能为空");
+                    return false;
+                }
+                return true;
+            }
+            function openYesOrNoDLG(){
+                $('.alert').css('display', 'block');
+            }
+        </script>
+
     </div>
 </div>
 <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
