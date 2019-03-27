@@ -20,32 +20,15 @@ spring:
     .expose-request-attributes: false
     expose-session-attributes: false
     request-context-attribute: request
-#    spring.freemarker.check-template-location=true
-#    spring.freemarker.content-type=text/html
-#    spring.freemarker.expose-request-attributes=false
-#    spring.freemarker.expose-session-attributes=false
-#    spring.freemarker.request-context-attribute=request
-#    spring.freemarker.suffix=.ftl
-#    #spring.freemarker.template-loader-path=classpath:/templates/
-#    charset: utf-8
-#    cache: false
-#    expose-request-attributes: true
-#    expose-session-attributes: true
-#    expose-spring-macro-helpers: true
-#    suffix: .ftl
 server:
   port: 8088
 
 
-#配置mybatis-plus
 mybatis-plus:
-#配置扫描xml
   config:
   mapper-locations: classpath:mapper/*.xml
-#实体扫描，多个package用逗号或者分号分隔
   type-aliases-package: com.you.online_exam.entity
   global-config:
-    #逻辑删除配置
     logic-delete-value: 0
     logic-not-delete-value: 1
     sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector

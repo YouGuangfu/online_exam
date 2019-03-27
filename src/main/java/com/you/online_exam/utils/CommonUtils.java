@@ -15,6 +15,7 @@ public class CommonUtils {
 
     private static final String NUMBER = "[0-9]*";
 
+    //采用可变长度字符串
     public static boolean isEmpty(String...strings){
         for (String string:strings){
             if (string==null || string.trim().isEmpty()){

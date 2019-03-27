@@ -1,17 +1,16 @@
 package com.you.online_exam.controller;
 
 
-import com.you.online_exam.entity.Exercise;
 import com.you.online_exam.entity.User;
 import com.you.online_exam.service.UserService;
+import com.you.online_exam.utils.CommonUtils;
 import com.you.online_exam.utils.RequestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.stereotype.Controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -66,11 +65,21 @@ public class UserController {
     }
 
     @PostMapping("/register.do")
-    public String userRegister(User user){
+    public String userRegister(User user, HttpServletRequest request) {
 
-        if (!userService.userExist(user)){
-//前端提示
+        if (CommonUtils.isEmpty(user.getName(), user.getPassword())) {
+//前端提示 先重定向到注册
+            return "redirect:/register";
         }
+        //判断两次密码是否一致
+        Long passBefore = Long.parseLong(request.getParameter("passBefore"));
+        Long passRepeat = Long.parseLong(request.getParameter("passRepeat"));
+        if (!passBefore.equals(passRepeat)) {
+            return "redirect:/register";
+        }
+//        HttpSession session = request.getSession();
+//        session.getAttribute("passBefore");
+//        session.getAttribute("passRepeat");
         userService.userRegister(user);
         //注册完后登录
         return "redirect:/login";
