@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd" >
 <head>
     <meta charset="UTF-8">
     <title>login</title>
@@ -37,6 +40,7 @@
                     <input type="hidden" name="role" id="role"/>
                 </div>
             </div>
+
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block btn-login" id="login-button" >
                     <i class="fa fa-sign-in"></i>
@@ -45,7 +49,7 @@
             </div>
 
         </form>
-        <script>
+        <script language="javascript">
             function login(){
                 //得到name输入框对象
                 var name = document.getElementById("name");

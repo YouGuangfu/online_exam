@@ -30,7 +30,7 @@ public interface UserService extends IService<User> {
     void userRegister(User user);
 
     /**
-     * 判断该用户是否存在
+     *
      * @param user
      * @return
      */

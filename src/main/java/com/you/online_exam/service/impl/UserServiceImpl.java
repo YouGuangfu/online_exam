@@ -36,6 +36,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         if(CommonUtils.isEmpty(user.getName(),user.getPassword())){}
 
         User nowUser = userMapper.selectOne(user);
+
         if (nowUser != null){
             user.setPassword(null);
             //创建一个会话session

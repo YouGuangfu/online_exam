@@ -23,6 +23,14 @@ public class Subject implements Serializable {
     private Long id;
     private String name;
 
+    public Subject() {
+    }
+
+    public Subject(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Subject(String name) {
         this.name = name;
     }

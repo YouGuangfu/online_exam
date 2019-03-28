@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * <p>
@@ -42,7 +45,7 @@ public class UserController {
     }
 
     @PostMapping("/login.do")
-    public String loginToSys(User user,HttpServletRequest httpServletRequest){
+    public String loginToSys(User user, HttpServletRequest httpServletRequest, HttpServletResponse response) throws IOException {
 
         boolean result = false;
         try {
@@ -55,8 +58,12 @@ public class UserController {
             return "redirect:/";
         }
         //重新登录
-        return "redirect:/login";
+        response.setContentType("text/html;charset=gb2312");
+        PrintWriter out = response.getWriter();
+        out.print("<script language=\"javascript\"> confirm('登录失败！账号或密码错误！')");
+        out.print("</script>");
 
+        return "redirect:/login";
     }
 
     @GetMapping("/register")
@@ -68,7 +75,7 @@ public class UserController {
     public String userRegister(User user, HttpServletRequest request) {
 
         if (CommonUtils.isEmpty(user.getName(), user.getPassword())) {
-//前端提示 先重定向到注册
+            //前端提示 先重定向到注册
             return "redirect:/register";
         }
         //判断两次密码是否一致
@@ -77,9 +84,6 @@ public class UserController {
         if (!passBefore.equals(passRepeat)) {
             return "redirect:/register";
         }
-//        HttpSession session = request.getSession();
-//        session.getAttribute("passBefore");
-//        session.getAttribute("passRepeat");
         userService.userRegister(user);
         //注册完后登录
         return "redirect:/login";

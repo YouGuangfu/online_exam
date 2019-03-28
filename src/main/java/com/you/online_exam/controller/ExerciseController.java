@@ -2,7 +2,6 @@ package com.you.online_exam.controller;
 
 
 import com.you.online_exam.entity.Exercise;
-import com.you.online_exam.mapper.ExerciseMapper;
 import com.you.online_exam.service.ExerciseService;
 import com.you.online_exam.service.SubjectService;
 import com.you.online_exam.utils.RequestUtils;
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import org.springframework.stereotype.Controller;
 
 import javax.servlet.http.HttpServletRequest;
 

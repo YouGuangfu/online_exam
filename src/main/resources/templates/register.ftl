@@ -68,7 +68,7 @@
                     confirm("密码不能为空");
                     return false;
                 }
-                if(pass != passRepeat){
+                if(pass.value != passRepeat.value){
                     confirm("两次密码不一致！");
                     return false;
                 }
