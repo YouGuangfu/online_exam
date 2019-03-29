@@ -20,4 +20,11 @@ public interface SubjectService extends IService<Subject> {
      * @return
      */
     List<Subject> getAllSubjects();
+
+    /**
+     * 添加科目
+     * @param name
+     * @return
+     */
+    boolean addSubject(String name);
 }

@@ -52,7 +52,7 @@
                 <h4> 已存在科目: ${subjects}</h4>
                 <br>
                 <br>
-                <form role="form" name="course" action="/user/tea/subjects" method="post">
+                <form role="form" name="course" action="/user/tea/subjects" method="post" onsubmit="return login()">
                     <div class="form-group">
                         <input type="text" class="form-control" name="name"
                                placeholder="科目名称">
@@ -61,6 +61,18 @@
                         <input type="submit" class="form-control" value="提交">
                     </div>
                 </form>
+                <script type="text/javascript">
+                    function login(){
+                        //得到name输入框对象
+                        var name = document.getElementById("name");
+                        //判断输入框是否有内容
+                        if(name.value.length==0){
+                            confirm("用户名不能为空");
+                            return false;
+                        }
+                        return true;
+                    }
+                </script>
             </div>
         </div>
     </div><!-- /#page-wrapper -->

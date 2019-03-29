@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import lombok.Builder;
 import lombok.Data;
-
 import java.io.Serializable;
 
 /**
@@ -32,6 +31,27 @@ public class Paper implements Serializable {
     @TableField("subject_id")
     private Long subjectId;
 
+    public Paper(Long id, Integer answerTime, String name, Long ownerId, Long subjectId) {
+        this.id = id;
+        this.answerTime = answerTime;
+        this.name = name;
+        this.ownerId = ownerId;
+        this.subjectId = subjectId;
+    }
+
+    public Paper(Long id, Integer answerTime, String name, Long ownerId, Long subjectId, String subject) {
+        this.id = id;
+        this.answerTime = answerTime;
+        this.name = name;
+        this.ownerId = ownerId;
+        this.subjectId = subjectId;
+        this.subject = subject;
+    }
+
+    /**
+     * 使表中没有此字段
+     */
+    @TableField(exist = false)
     private String subject;
 
 }

@@ -173,18 +173,18 @@
                     '            <div class="panel panel-info">\n' +
                     '                <div class="panel-heading">\n' +
                     '                    <h3 class="panel-title">\n' +
-                    '                        <input type="text" class="form-control" name="title" placeholder="题目">\n' +
+                    '                        <input type="text" class="form-control" name="title" placeholder="题目(必填)">\n' +
                     '                    </h3>\n' +
                     '                </div>\n' +
                     '                <div class="panel-body">\n' +
                     '                    <textarea class="form-control" rows="2" name="content" placeholder="内容"></textarea>\n' +
                     '                    <br>\n' +
                     '                    <div class="form-inline">\n' +
-                    '                        A:&#12288;  <input type="text" class="form-control" name="A">\n' +
+                    '                        A(必填):&#12288;  <input type="text" class="form-control" name="A>\n' +
                     '                    </div>\n' +
                     '                    <br>\n' +
                     '                    <div class="form-inline">\n' +
-                    '                        B:&#12288  <input type="text" class="form-control" name="B">\n' +
+                    '                        B(必填):&#12288  <input type="text" class="form-control" name="B">\n' +
                     '                    </div>\n' +
                     '                    <br>\n' +
                     '                    <div class="form-inline">\n' +
@@ -200,7 +200,7 @@
                     '                    </div>\n' +
                     '                    <br>\n' +
                     '                    <div class="form-inline">\n' +
-                    '                        分值: <input type="number" class="form-control" name="score">\n' +
+                    '                        分值(必填): <input type="number" class="form-control" name="score">\n' +
                     '                    </div>\n' +
                     '                </div>\n' +
                     '            </div>\n' +
@@ -222,31 +222,32 @@
                     }
                 })
             }),
-            $(document).on("click", "#add_multi_choose",
+
+    $(document).on("click", "#add_multi_choose",
                     function () {
                         bootbox.dialog({
                             title: "添加多选题",
                             message: '<div class="row">\n' +
                             '    <div class="col-md-12">\n' +
-                            '        <form class="form-horizontal" id="add_multi_choose_form">\n' +
+                            '        <form class="form-horizontal" id="add_multi_choose_form" >\n' +
                             '          <input type="hidden" name="paperId" value="${paperId}">\n' +
                             '          <input type="hidden" name="subjectId" value="${subjectId}">\n' +
                             '          <input type="hidden" name="type" value="multi_choose">\n' +
                             '            <div class="panel panel-success">\n' +
                             '                <div class="panel-heading">\n' +
                             '                    <h3 class="panel-title">\n' +
-                            '                        <input type="text" class="form-control" name="title" placeholder="题目">\n' +
+                            '                        <input type="text" class="form-control" name="title" placeholder="题目(必填)">\n' +
                             '                    </h3>\n' +
                             '                </div>\n' +
                             '                <div class="panel-body">\n' +
                             '                    <textarea class="form-control" rows="2" name="content" placeholder="内容"></textarea>\n' +
                             '                    <br>\n' +
                             '                    <div class="form-inline">\n' +
-                            '                        A:&#12288;  <input type="text" class="form-control" name="A">\n' +
+                            '                        A(必填):&#12288;  <input type="text" class="form-control" name="A">\n' +
                             '                    </div>\n' +
                             '                    <br>\n' +
                             '                    <div class="form-inline">\n' +
-                            '                        B:&#12288;  <input type="text" class="form-control" name="B">\n' +
+                            '                        B(必填):&#12288;  <input type="text" class="form-control" name="B">\n' +
                             '                    </div>\n' +
                             '                    <br>\n' +
                             '                    <div class="form-inline">\n' +
@@ -262,7 +263,7 @@
                             '                    </div>\n' +
                             '                    <br>\n' +
                             '                    <div class="form-inline">\n' +
-                            '                        分值: <input type="number" class="form-control" name="score">\n' +
+                            '                        分值(必填): <input type="number" class="form-control" name="score">\n' +
                             '                    </div>\n' +
                             '                </div>\n' +
                             '            </div>\n' +
@@ -296,7 +297,7 @@
                             '            <div class="panel panel-warning">\n' +
                             '                <div class="panel-heading">\n' +
                             '                    <h3 class="panel-title">\n' +
-                            '                        <input type="text" class="form-control" name="title" placeholder="题目">\n' +
+                            '                        <input type="text" class="form-control" name="title" placeholder="题目(必填)">\n' +
                             '                    </h3>\n' +
                             '                </div>\n' +
                             '                <div class="panel-body">\n' +
@@ -304,7 +305,7 @@
                             '                    <br>\n' +
                             '                    <textarea class="form-control" rows="1" name="remark" placeholder="备注，比如答案等"></textarea>\n' +
                             '                    <br>\n' +
-                            '                    <input type="number" class="form-control" name="score" placeholder="分值">\n' +
+                            '                    <input type="number" class="form-control" name="score" placeholder="分值(必填)">\n' +
                             '                </div>\n' +
                             '            </div>\n' +
                             '    </form>\n' +
@@ -336,7 +337,7 @@
                     '            <div class="panel panel-danger">\n' +
                     '                <div class="panel-heading">\n' +
                     '                    <h3 class="panel-title">\n' +
-                    '                        <input type="text" class="form-control" name="title" placeholder="题目">\n' +
+                    '                        <input type="text" class="form-control" name="title" placeholder="题目(必填)">\n' +
                     '                    </h3>\n' +
                     '                </div>\n' +
                     '                <div class="panel-body">\n' +
@@ -344,7 +345,7 @@
                     '                    <br>\n' +
                     '                    <textarea class="form-control" rows="4" name="remark" placeholder="备注，比如答案等"></textarea>\n' +
                     '                    <br>\n' +
-                    '                    <input type="number" class="form-control" name="score" placeholder="分值">\n' +
+                    '                    <input type="number" class="form-control" name="score" placeholder="分值(必填)">\n' +
                     '                </div>\n' +
                     '            </div>\n' +
                     '        </form>\n' +

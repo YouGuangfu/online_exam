@@ -99,6 +99,6 @@ public class PaperServiceImpl extends ServiceImpl<PaperMapper, Paper> implements
 
     @Override
     public void test() {
-        Exercise exercise = new Exercise();
+//        Exercise exercise = new Exercise();
     }
 }

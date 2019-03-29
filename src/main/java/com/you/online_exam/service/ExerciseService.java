@@ -1,5 +1,6 @@
 package com.you.online_exam.service;
 
+import com.you.online_exam.dao.ExerciseDao;
 import com.you.online_exam.entity.Exercise;
 import com.baomidou.mybatisplus.service.IService;
 
@@ -22,5 +23,24 @@ public interface ExerciseService extends IService<Exercise> {
      */
     Exercise getExercise(Long exerciseId);
 
+    /**
+     * 根据试卷id获取所有练习
+     * @param paperId
+     * @return
+     */
+    List<Exercise> getAllExercisesByPaperId(Long paperId);
 
+    /**
+     * 添加习题
+     * @param exerciseDao
+     */
+    boolean addExercise(ExerciseDao exerciseDao);
+
+    /**
+     * 根据paperId和studentId查找测试题
+     * @param paperId
+     * @param studentId
+     * @return
+     */
+    List<Exercise> getExercises(Long paperId,Long studentId);
 }
