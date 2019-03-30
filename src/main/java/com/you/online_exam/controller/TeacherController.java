@@ -177,7 +177,8 @@ public class TeacherController {
 
     @PostMapping("/paper/{id}/score")
     public String doScorePage(@PathVariable Long id,@RequestParam("student") Long studentId, @RequestParam String scores){
-        return null;
+        teacherStudentService.testPapers(id,studentId,scores);
+        return "redirect:/user/tea/correct_paper";
     }
 
 }

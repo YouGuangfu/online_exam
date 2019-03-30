@@ -5,8 +5,11 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import lombok.Data;
 import lombok.Generated;
+import org.apache.ibatis.mapping.FetchType;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * <p>
@@ -30,6 +33,8 @@ public class User implements Serializable {
     private String name;
     private String password;
     private Integer role;
+
+    private Set<Exercise> exerciseCollection=new HashSet<>();
 
     public User() {
     }
