@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.you.online_exam.config.QuestionType;
 import com.you.online_exam.dao.ExerciseDao;
+import com.you.online_exam.dao.ExerciseFront;
 import com.you.online_exam.dao.UserDao;
 import com.you.online_exam.entity.Exercise;
 import com.you.online_exam.entity.UserPaperAnswer;
@@ -17,6 +18,8 @@ import com.you.online_exam.utils.JsonUtils;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -118,6 +121,18 @@ public class ExerciseServiceImpl extends ServiceImpl<ExerciseMapper, Exercise> i
             }
         }
         return exerciseList;
+    }
+
+    @Override
+    public ExerciseFront getAllByType(String type, Pageable pageable) {
+
+        Page<Exercise> exercisePage;
+        Long count;
+        if (type.equals("all")){
+//            exercisePage = exerciseMapper.selectPage(pageable,null);
+        }
+
+        return null;
     }
 
     private int getPosition(Long paperId){

@@ -35,7 +35,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li><a href="/user/all/notice?r=s"><i class="fa fa-bell"></i> 消息中心</a></li>
-                <li class="active-bg"><a href="#"><i class="fa fa-plus"></i> 习题收藏</a></li>
+                <#--<li class="active-bg"><a href="#"><i class="fa fa-plus"></i> 习题收藏</a></li>-->
                 <li><a href="/user/stu/crs"><i class="fa fa-edit"></i> 参加课程</a></li>
             </ul>
 

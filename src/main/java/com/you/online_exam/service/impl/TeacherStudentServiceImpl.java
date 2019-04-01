@@ -170,25 +170,25 @@ public class TeacherStudentServiceImpl extends ServiceImpl<TeacherStudentMapper,
         }
     }
 
-    @Override
-    public boolean addExerciseCollections(Long userId, Long exerciseId) {
-        User user = userMapper.selectById(userId);
-        Exercise exercise = exerciseMapper.selectById(exerciseId);
-        user.getExerciseCollection().add(exercise);
-        return  userMapper.insert(user) >0 ;
-    }
+//    @Override
+//    public boolean addExerciseCollections(Long userId, Long exerciseId) {
+//        User user = userMapper.selectById(userId);
+//        Exercise exercise = exerciseMapper.selectById(exerciseId);
+//        user.getExerciseCollection().add(exercise);
+//        return  userMapper.insert(user) >0 ;
+//    }
 
-    @Override
-    public Set<Exercise> getExerciseConllection(Long userId) {
-        Set<Exercise> exerciseSet = userMapper.selectById(userId).getExerciseCollection();
-        for (Exercise exercise:exerciseSet) {
-            if (QuestionType.TYPE_SINGLE_CHOOSE.equals(exercise.getType()) || QuestionType.TYPE_MULTI_CHOOSE.equals(exercise.getType())){
-                Map<Character,String> characterStringMap = JsonUtils.instance.readJsonToExeMap(exercise.getChooses());
-                exercise.setChooseList(characterStringMap);
-            }
-        }
-        return exerciseSet;
-    }
+//    @Override
+//    public Set<Exercise> getExerciseConllection(Long userId) {
+//        Set<Exercise> exerciseSet = userMapper.selectById(userId).getExerciseCollection();
+//        for (Exercise exercise:exerciseSet) {
+//            if (QuestionType.TYPE_SINGLE_CHOOSE.equals(exercise.getType()) || QuestionType.TYPE_MULTI_CHOOSE.equals(exercise.getType())){
+//                Map<Character,String> characterStringMap = JsonUtils.instance.readJsonToExeMap(exercise.getChooses());
+//                exercise.setChooseList(characterStringMap);
+//            }
+//        }
+//        return exerciseSet;
+//    }
 
     @Override
     public List<PaperDao> getPapers(Long studentId) {

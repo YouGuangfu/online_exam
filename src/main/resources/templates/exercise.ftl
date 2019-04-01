@@ -45,7 +45,7 @@
                             <li class="dropdown user-dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>${name!"jmooc"}<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/user/stu/exercises"><i class="fa fa-gear"></i> 习题收藏</a></li>
+                                    <#--<li><a href="/user/stu/exercises"><i class="fa fa-gear"></i> 习题收藏</a></li>-->
                                     <li><a href="/user/stu/exams"><i class="fa fa-user"></i> 我的考试</a></li>
                                     <li class="divider"></li>
                                     <li><a href="/user/logout"><i class="fa fa-power-off"></i> 登出</a></li>
@@ -147,7 +147,7 @@
                                     </div>
                                   </#list>
                                  <p>
-                                     <a class="btn btn-info" style="color:white" href="/user/stu/collect_exercises/add/${item.id!}">收藏</a>
+                                     <#--<a class="btn btn-info" style="color:white" href="/user/stu/collect_exercises/add/${item.id!}">收藏</a>-->
                                  </p>
                              </div>
                          </div>
@@ -172,7 +172,7 @@
                                     </div>
                                  </#list>
                                  <p>
-                                     <a class="btn btn-info" style="color:white" href="/user/stu/collect_exercises/add/${item.id!}">收藏</a>
+                                     <#--<a class="btn btn-info" style="color:white" href="/user/stu/collect_exercises/add/${item.id!}">收藏</a>-->
                                  </p>
                              </div>
                          </div>
@@ -186,7 +186,7 @@
                              <div class="panel-body">
                                  ${item.content!}
                                  <p>
-                                     <a class="btn btn-info" style="color:white" href="/user/stu/collect_exercises/add/${item.id!}">收藏</a>
+                                     <#--<a class="btn btn-info" style="color:white" href="/user/stu/collect_exercises/add/${item.id!}">收藏</a>-->
                                  </p>
                              </div>
                          </div>
@@ -200,7 +200,7 @@
                             <div class="panel-body">
                                 ${item.content!}
                                 <p>
-                                    <a class="btn btn-info" style="color:white" href="/user/stu/collect_exercises/add/${item.id!}">收藏</a>
+                                    <#--<a class="btn btn-info" style="color:white" href="/user/stu/collect_exercises/add/${item.id!}">收藏</a>-->
                                 </p>
                             </div>
                         </div>

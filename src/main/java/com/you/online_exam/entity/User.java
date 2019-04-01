@@ -34,7 +34,8 @@ public class User implements Serializable {
     private String password;
     private Integer role;
 
-    private Set<Exercise> exerciseCollection=new HashSet<>();
+//    @TableField("exercise_collection")
+//    private Set<Exercise> exerciseCollection=new HashSet<>();
 
     public User() {
     }

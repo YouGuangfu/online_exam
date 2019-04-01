@@ -61,14 +61,14 @@ public interface TeacherStudentService extends IService<TeacherStudent> {
      * @param exerciseId
      * @return
      */
-    boolean addExerciseCollections(Long userId,Long exerciseId);
+//    boolean addExerciseCollections(Long userId,Long exerciseId);
 
     /**
      * 获取收藏的习题
      * @param userId
      * @return
      */
-    Set<Exercise> getExerciseConllection(Long userId);
+//    Set<Exercise> getExerciseConllection(Long userId);
 
     /**
      * 根据studentId获取试卷

@@ -46,7 +46,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="/user/stu/crs"><i class="fa fa-user"></i> 学习课程</a></li>
                                 <li><a href="/user/all/notice?r=s"><i class="fa fa-envelope"></i> 消息 <span class="badge">${num!0}</span></a></li>
-                                <li><a href="/user/stu/exe/col"><i class="fa fa-gear"></i> 习题收藏</a></li>
+                                <#--<li><a href="/user/stu/exe/col"><i class="fa fa-gear"></i> 习题收藏</a></li>-->
                                 <li class="divider"></li>
                                 <li><a href="/user/logout"><i class="fa fa-power-off"></i> 登出</a></li>
                             </ul>
@@ -110,7 +110,7 @@
                     <br>
                     <p>${exe.analysis!}</p>
                     <p>
-                        <a class="btn btn-success" href="/user/all/exe/col/add/${exe.id!}">收藏...</a>
+                        <#--<a class="btn btn-success" href="/user/all/exe/col/add/${exe.id!}">收藏...</a>-->
                     </p>
                 </div>
             </div>

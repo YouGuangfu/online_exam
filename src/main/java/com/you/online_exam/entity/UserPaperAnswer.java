@@ -35,5 +35,16 @@ public class UserPaperAnswer implements Serializable {
     @TableField("user_id")
     private Long userId;
 
+    public UserPaperAnswer(Long id, String answer, Long exerciseId, Long paperId, Integer score, Long userId) {
+        this.id = id;
+        this.answer = answer;
+        this.exerciseId = exerciseId;
+        this.paperId = paperId;
+        this.score = score;
+        this.userId = userId;
+    }
 
+    public UserPaperAnswer() {
+
+    }
 }

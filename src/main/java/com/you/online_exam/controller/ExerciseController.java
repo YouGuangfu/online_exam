@@ -1,11 +1,15 @@
 package com.you.online_exam.controller;
 
 
+import com.you.online_exam.dao.ExerciseFront;
 import com.you.online_exam.entity.Exercise;
 import com.you.online_exam.service.ExerciseService;
 import com.you.online_exam.service.SubjectService;
 import com.you.online_exam.utils.RequestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,5 +45,17 @@ public class ExerciseController {
         model.addAttribute("exe", exercise);
         return "exe_detail";
     }
+
+    @GetMapping("/list")
+    public String exercise(@RequestParam(value = "type",required = false) String type,
+                           @PageableDefault(sort = {"id"},direction = Sort.Direction.ASC)Pageable pageable,
+                           HttpServletRequest request, Model model){
+        RequestUtils.setFrontUserInfo(model,request);
+        model.addAttribute("subjects",subjectService.getAllSubjects());
+
+//        ExerciseFront exerciseFront = exerciseService.get
+return null;
+    }
+
 }
 

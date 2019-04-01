@@ -33,7 +33,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
-                <li><a href="/user/stu/exercises"><i class="fa fa-plus"></i> 习题收藏</a></li>
+                <#--<li><a href="/user/stu/exercises"><i class="fa fa-plus"></i> 习题收藏</a></li>-->
                 <li><a href="/user/stu/exams"><i class="fa fa-edit"></i> 我的考试</a></li>
                 <li class="active-bg"><a href="#"><i class="fa fa-edit"></i> 参与考试</a></li>
             </ul>
