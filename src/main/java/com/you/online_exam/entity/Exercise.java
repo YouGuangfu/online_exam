@@ -32,6 +32,8 @@ public class Exercise implements Serializable {
      * 习题内容
      */
     private String content;
+
+    @TableField("paper_id")
     private Long paperId;
     /**
      * 习题在试卷中的位置

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,8 +25,8 @@ import javax.servlet.http.HttpServletRequest;
  * @author 尤广富
  * @since 2019-03-26
  */
-@RestController
-@RequestMapping("/exercise")
+@Controller
+@RequestMapping("/exercises")
 public class ExerciseController {
 
     @Autowired
@@ -53,8 +54,14 @@ public class ExerciseController {
         RequestUtils.setFrontUserInfo(model,request);
         model.addAttribute("subjects",subjectService.getAllSubjects());
 
-//        ExerciseFront exerciseFront = exerciseService.get
-return null;
+        ExerciseFront exerciseFront = exerciseService.getAllByType(type,pageable);
+        Long count = exerciseFront.count/pageable.getPageSize() + 1;
+        model.addAttribute("exercises",exerciseFront.exercisePage);
+        model.addAttribute("count",count);
+        model.addAttribute("exerciseType",type);
+        model.addAttribute("currentPage",pageable.getPageNumber() +1);
+
+        return "exercise";
     }
 
 }

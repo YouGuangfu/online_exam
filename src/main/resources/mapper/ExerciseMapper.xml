@@ -7,7 +7,7 @@
         <id column="id" property="id" />
         <result column="chooses" property="chooses" />
         <result column="content" property="content" />
-        <result column="paperId" property="paperId" />
+        <result column="paper_id" property="paperId" />
         <result column="position" property="position" />
         <result column="remark" property="remark" />
         <result column="score" property="score" />
@@ -15,5 +15,9 @@
         <result column="title" property="title" />
         <result column="type" property="type" />
     </resultMap>
+    <select id="getExercisePage"  resultType="org.springframework.data.domain.Page">
+        select * from exercise order by id limit ${page},${size};
+    </select>
+
 
 </mapper>

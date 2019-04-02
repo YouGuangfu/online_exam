@@ -1,7 +1,9 @@
 package com.you.online_exam.dao;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.you.online_exam.entity.Exercise;
-import org.springframework.data.domain.Page;
+
+import java.util.List;
 
 /**
  * @author 尤广富 (Online Class)
@@ -9,11 +11,11 @@ import org.springframework.data.domain.Page;
  **/
 public class ExerciseFront {
 
-    public final Page<Exercise> exercisePage;
+    public final List<Exercise> exercisePage;
     public final Long count;
 
 
-    public ExerciseFront(Page<Exercise> exercisePage, Long count) {
+    public ExerciseFront(List<Exercise> exercisePage, Long count) {
         this.exercisePage = exercisePage;
         this.count = count;
     }

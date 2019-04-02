@@ -1,12 +1,12 @@
 package com.you.online_exam.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.you.online_exam.config.QuestionType;
 import com.you.online_exam.dao.ExerciseDao;
 import com.you.online_exam.dao.ExerciseFront;
-import com.you.online_exam.dao.UserDao;
 import com.you.online_exam.entity.Exercise;
 import com.you.online_exam.entity.UserPaperAnswer;
 import com.you.online_exam.exception.CommonException;
@@ -14,15 +14,16 @@ import com.you.online_exam.mapper.ExerciseMapper;
 import com.you.online_exam.mapper.UserPaperAnswerMapper;
 import com.you.online_exam.service.ExerciseService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.you.online_exam.utils.CommonUtils;
 import com.you.online_exam.utils.JsonUtils;
-import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -125,14 +126,34 @@ public class ExerciseServiceImpl extends ServiceImpl<ExerciseMapper, Exercise> i
 
     @Override
     public ExerciseFront getAllByType(String type, Pageable pageable) {
-
-        Page<Exercise> exercisePage;
-        Long count;
+        Page<Exercise> exercisePage = new Page<>();
+        List<Exercise> exerciseList = new ArrayList<>();
+        RowBounds rowBounds = new RowBounds((int) pageable.getOffset(),pageable.getPageSize());
+        int count;
         if (type.equals("all")){
-//            exercisePage = exerciseMapper.selectPage(pageable,null);
+            exerciseList = exerciseMapper.selectPage(rowBounds,null);
+            count = exerciseMapper.selectCount(null);
+        }else if (CommonUtils.isNumeric(type)){
+            Long subjectId = Long.parseLong(type);
+            EntityWrapper<Exercise> entityWrapper = new EntityWrapper<>();
+            entityWrapper.eq("subject_id",subjectId);
+            exerciseList = exerciseMapper.selectPage(rowBounds,entityWrapper);
+            count = exerciseMapper.selectCount(entityWrapper);
+        }else {
+            EntityWrapper<Exercise> entityWrapper = new EntityWrapper<>();
+            entityWrapper.eq("type",type);
+            exerciseList=exerciseMapper.selectPage(rowBounds,entityWrapper);
+            count = exerciseMapper.selectCount(entityWrapper);
+        }
+        for (Exercise exercise:exercisePage.getRecords()) {
+            if (QuestionType.TYPE_SINGLE_CHOOSE.equals(exercise.getType()) || QuestionType.TYPE_MULTI_CHOOSE.equals(exercise.getType())){
+                Map<Character,String> characterStringMap = JsonUtils.instance.readJsonToExeMap(exercise.getChooses());
+                exercise.setChooseList(characterStringMap);
+            }
         }
 
-        return null;
+//        exercisePage.setRecords(exerciseList);
+        return new ExerciseFront(exerciseList, (long) count);
     }
 
     private int getPosition(Long paperId){
