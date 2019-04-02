@@ -126,7 +126,7 @@ public class ExerciseServiceImpl extends ServiceImpl<ExerciseMapper, Exercise> i
 
     @Override
     public ExerciseFront getAllByType(String type, Pageable pageable) {
-        Page<Exercise> exercisePage = new Page<>();
+//        Page<Exercise> exercisePage = new Page<>();
         List<Exercise> exerciseList = new ArrayList<>();
         RowBounds rowBounds = new RowBounds((int) pageable.getOffset(),pageable.getPageSize());
         int count;
@@ -145,14 +145,13 @@ public class ExerciseServiceImpl extends ServiceImpl<ExerciseMapper, Exercise> i
             exerciseList=exerciseMapper.selectPage(rowBounds,entityWrapper);
             count = exerciseMapper.selectCount(entityWrapper);
         }
-        for (Exercise exercise:exercisePage.getRecords()) {
+        for (Exercise exercise:exerciseList) {
             if (QuestionType.TYPE_SINGLE_CHOOSE.equals(exercise.getType()) || QuestionType.TYPE_MULTI_CHOOSE.equals(exercise.getType())){
                 Map<Character,String> characterStringMap = JsonUtils.instance.readJsonToExeMap(exercise.getChooses());
                 exercise.setChooseList(characterStringMap);
             }
         }
 
-//        exercisePage.setRecords(exerciseList);
         return new ExerciseFront(exerciseList, (long) count);
     }
 
