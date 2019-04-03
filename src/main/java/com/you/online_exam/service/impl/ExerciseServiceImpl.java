@@ -55,7 +55,7 @@ public class ExerciseServiceImpl extends ServiceImpl<ExerciseMapper, Exercise> i
     @Override
     public List<Exercise> getAllExercisesByPaperId(Long paperId) {
         EntityWrapper<Exercise> entityWrapper = new EntityWrapper<>();
-        entityWrapper.eq("paperId",paperId);
+        entityWrapper.eq("paper_id",paperId);
         entityWrapper.orderBy("position");
         List<Exercise> exerciseList = exerciseMapper.selectList(entityWrapper);
         for (Exercise exercise:exerciseList) {
@@ -105,7 +105,7 @@ public class ExerciseServiceImpl extends ServiceImpl<ExerciseMapper, Exercise> i
     @Override
     public List<Exercise> getExercises(Long paperId, Long studentId) {
         EntityWrapper<Exercise> entityWrapper = new EntityWrapper<>();
-        entityWrapper.eq("paperId",paperId);
+        entityWrapper.eq("paper_id",paperId);
         entityWrapper.orderBy("position");
         List<Exercise> exerciseList = exerciseMapper.selectList(entityWrapper);
         for (Exercise exercise:exerciseList) {
@@ -157,7 +157,7 @@ public class ExerciseServiceImpl extends ServiceImpl<ExerciseMapper, Exercise> i
 
     private int getPosition(Long paperId){
         EntityWrapper<Exercise> entityWrapper = new EntityWrapper<>();
-        entityWrapper.eq("paperId",paperId);
+        entityWrapper.eq("paper_id",paperId);
         entityWrapper.orderBy("position");
         List<Exercise> exerciseList = exerciseMapper.selectList(entityWrapper);
         if (exerciseList.isEmpty()){

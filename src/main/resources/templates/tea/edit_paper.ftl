@@ -180,7 +180,7 @@
                     '                    <textarea class="form-control" rows="2" name="content" placeholder="内容"></textarea>\n' +
                     '                    <br>\n' +
                     '                    <div class="form-inline">\n' +
-                    '                        A(必填):&#12288;  <input type="text" class="form-control" name="A>\n' +
+                    '                        A(必填):&#12288;  <input type="text" class="form-control" name="A">\n' +
                     '                    </div>\n' +
                     '                    <br>\n' +
                     '                    <div class="form-inline">\n' +
