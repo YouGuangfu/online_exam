@@ -121,11 +121,11 @@ public class TeacherStudentServiceImpl extends ServiceImpl<TeacherStudentMapper,
                     userPaperScore.setUserId(teacherStudent.getStudentId());
                     userPaperScore.setPaperId(paper.getId());
                     UserPaperScore nowUserPaperScore = userPaperScoreMapper.selectOne(userPaperScore);
-                    if (userPaperScore == null){
+                    if (nowUserPaperScore == null){
                         paperDao.setType(ROLE_TEACHER);
                     }else {
                         paperDao.setType(ROLE_STUDENT);
-                        paperDao.setScore(userPaperScore.getScore());
+                        paperDao.setScore(nowUserPaperScore.getScore());
                     }
                     paperDaoList.add(paperDao);
                 }
@@ -222,7 +222,7 @@ public class TeacherStudentServiceImpl extends ServiceImpl<TeacherStudentMapper,
             userPaperAnswerEntityWrapper.eq("paper_id",paper.getId());
             if (nowUserPaperScore != null){
                 paperDao.setType(3);
-                paperDao.setScore(userPaperScore.getScore());
+                paperDao.setScore(nowUserPaperScore.getScore());
             }else if (userPaperAnswerMapper.selectCount(userPaperAnswerEntityWrapper)>0){
                 paperDao.setType(2);
             }else {
@@ -246,6 +246,12 @@ public class TeacherStudentServiceImpl extends ServiceImpl<TeacherStudentMapper,
                         .answer(answerDao.getValue())
                         .build();
                 userPaperAnswerList.add(userPaperAnswer);
+            }
+
+            if (userPaperAnswerList != null) {
+                for (UserPaperAnswer userPaperAnswer : userPaperAnswerList) {
+                    userPaperAnswerMapper.insert(userPaperAnswer);
+                }
             }
 
 

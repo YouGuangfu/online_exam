@@ -161,6 +161,9 @@ public class TeacherController {
     public String paperCorrect(HttpServletRequest request,Model model){
         UserDao userDao = RequestUtils.getUserAuxiliaryFromReq(request);
         List<PaperDao> paperDaoList = teacherStudentService.getPapersByTeacherId(userDao.getId());
+        if (paperDaoList == null){
+            return "tea/correct_paper";
+        }
         model.addAttribute("papers",paperDaoList);
         return "tea/correct_paper";
     }
@@ -171,11 +174,11 @@ public class TeacherController {
 
         model.addAttribute("exercises",exercises);
         model.addAttribute("paperId",id);
-        model.addAttribute("student",studentId);
+        model.addAttribute("studentId",studentId);
         return "tea/score_page";
     }
 
-    @PostMapping("/paper/{id}/score")
+    @PostMapping("/papers/{id}/score")
     public String doScorePage(@PathVariable Long id,@RequestParam("student") Long studentId, @RequestParam String scores){
         teacherStudentService.testPapers(id,studentId,scores);
         return "redirect:/user/tea/correct_paper";

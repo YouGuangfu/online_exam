@@ -17,4 +17,11 @@ public class ScoreDao {
 
     private String score;
 
+    public ScoreDao(String id, String score) {
+        this.id = id;
+        this.score = score;
+    }
+
+    public ScoreDao() {
+    }
 }
