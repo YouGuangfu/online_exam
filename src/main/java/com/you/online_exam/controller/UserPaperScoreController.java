@@ -16,6 +16,6 @@ import org.springframework.stereotype.Controller;
 @Controller
 @RequestMapping("/userPaperScore")
 public class UserPaperScoreController {
-
+    
 }
 
