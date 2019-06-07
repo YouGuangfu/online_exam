@@ -28,4 +28,6 @@ public class PaperDao {
     private int type;
 
     private double score;
+
+    private double total;
 }

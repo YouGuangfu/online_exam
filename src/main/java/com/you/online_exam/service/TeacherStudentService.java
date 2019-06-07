@@ -1,13 +1,11 @@
 package com.you.online_exam.service;
 
-import com.you.online_exam.dao.PaperDao;
-import com.you.online_exam.entity.Exercise;
-import com.you.online_exam.entity.TeacherStudent;
 import com.baomidou.mybatisplus.service.IService;
+import com.you.online_exam.dao.PaperDao;
+import com.you.online_exam.entity.TeacherStudent;
 import com.you.online_exam.entity.User;
 
 import java.util.List;
-import java.util.Set;
 
 /**
  * <p>
@@ -84,4 +82,12 @@ public interface TeacherStudentService extends IService<TeacherStudent> {
      * @param answer
      */
     void answerPaper(Long studentId,Long paperId,String answer);
+
+    /**
+     * 获取总分
+     *
+     * @param paperId
+     * @return
+     */
+    Double getTotal(Long paperId);
 }

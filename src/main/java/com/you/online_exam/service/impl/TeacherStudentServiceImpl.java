@@ -1,19 +1,17 @@
 package com.you.online_exam.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.you.online_exam.config.QuestionType;
 import com.you.online_exam.dao.AnswerDao;
 import com.you.online_exam.dao.PaperDao;
 import com.you.online_exam.dao.ScoreDao;
 import com.you.online_exam.entity.*;
 import com.you.online_exam.mapper.*;
 import com.you.online_exam.service.TeacherStudentService;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.you.online_exam.utils.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,8 +19,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -41,6 +37,7 @@ public class TeacherStudentServiceImpl extends ServiceImpl<TeacherStudentMapper,
 
     @Autowired
     UserMapper userMapper;
+
     @Autowired
     TeacherStudentMapper teacherStudentMapper;
     @Autowired
@@ -110,12 +107,16 @@ public class TeacherStudentServiceImpl extends ServiceImpl<TeacherStudentMapper,
                     subject.setId(paper.getSubjectId());
                     User user = new User();
                     user.setId(teacherStudent.getStudentId());
+                    // ExerciseServiceImpl exerciseService = new ExerciseServiceImpl();
+                    // Double total = exerciseService.getTotal(paper.getId());
+                    Double total = getTotal(paper.getId());
                     PaperDao paperDao = PaperDao.builder()
                             .studentId(teacherStudent.getStudentId())
                             .id(paper.getId())
                             .name(paper.getName())
                             .subject(subjectMapper.selectOne(subject).getName())
                             .student(userMapper.selectOne(user).getName())
+                            .total(total)
                             .build();
                     UserPaperScore userPaperScore = new UserPaperScore();
                     userPaperScore.setUserId(teacherStudent.getStudentId());
@@ -262,5 +263,20 @@ public class TeacherStudentServiceImpl extends ServiceImpl<TeacherStudentMapper,
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public Double getTotal(Long paperId) {
+
+        Double total = 0d;
+        EntityWrapper<Exercise> entityWrapper = new EntityWrapper<>();
+        entityWrapper.eq("paper_id", paperId);
+        List<Exercise> exerciseList = exerciseMapper.selectList(entityWrapper);
+        if (exerciseList != null) {
+            for (Exercise e : exerciseList) {
+                total += e.getScore();
+            }
+        }
+        return total;
     }
 }

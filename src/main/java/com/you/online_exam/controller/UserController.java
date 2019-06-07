@@ -84,6 +84,11 @@ public class UserController {
         if (!passBefore.equals(passRepeat)) {
             return "redirect:/register";
         }
+        //判断用户是否存在
+        boolean isExist = userService.userExist(user);
+        if (isExist) {
+            return "redirect:/register";
+        }
         userService.userRegister(user);
         //注册完后登录
         return "redirect:/login";

@@ -1,9 +1,9 @@
 package com.you.online_exam.service;
 
+import com.baomidou.mybatisplus.service.IService;
 import com.you.online_exam.dao.ExerciseDao;
 import com.you.online_exam.dao.ExerciseFront;
 import com.you.online_exam.entity.Exercise;
-import com.baomidou.mybatisplus.service.IService;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
@@ -53,5 +53,6 @@ public interface ExerciseService extends IService<Exercise> {
      * @return
      */
     ExerciseFront getAllByType(String type, Pageable pageable);
+
 
 }

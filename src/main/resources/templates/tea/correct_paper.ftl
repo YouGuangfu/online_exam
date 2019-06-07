@@ -56,6 +56,7 @@
                             <th>学生</th>
                             <th>科目</th>
                             <th>成绩</th>
+                            <th>试卷总分</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -71,6 +72,9 @@
                              <#else>
                                  <a href='/user/tea/papers/${item.id}/score?student=${item.studentId}'>待批阅</i></a>
                              </#if>
+                        </td>
+                        <td>
+                        ${item.total!}
                         </td>
                         </tr>
                         </#list>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <title>courses</title>
@@ -154,7 +154,7 @@
 
 <footer class="main bg-dark-img">
     <section class="copyright">
-        <div class="container"> &copy; Copyright 2019
+        <div class="container"> &copy; Copyright 2019 哈尔滨商业大学在线考试系统
         </div>
     </section>
 </footer>
